@@ -1,0 +1,52 @@
+/* TABLE */
+
+table tr th {
+    background: #3273B9 !important;
+    color: #ffffff;
+    vertical-align: middle;
+    text-align: left;
+}
+
+table.table td,
+table.table th {
+    padding: 2rem !important;
+    border: none;
+}
+
+table,
+th,
+td {
+    border: none !important;
+    vertical-align: middle;
+    text-align: left;
+    background-color: #fbfbfb;
+}
+
+.table tr {
+    border-bottom: 3px solid #ffffff;
+}
+
+table tr:hover {
+    background-color: #eeeeee;
+}
+
+table tr .th200 {
+    width: 200px;
+}
+
+table tr .th100 {
+    width: 100px;
+}
+
+table tr .th150 {
+    width: 150px;
+}
+
+table .row-click-able {
+    cursor: pointer;
+}
+
+tr td:nth-child(1) {
+    font-weight: bold;
+    color: #000000;
+}

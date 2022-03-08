@@ -1,0 +1,603 @@
+@charset "utf-8";
+
+/* --------------------------------
+	forms common
+-------------------------------- */
+/* ------ mv ------ */
+.mv .pageTtl {
+	position: relative;
+	padding: 5rem 0 1.2rem;
+	font-family: "ヒラギノ明朝 ProN W3", "HiraMinProN-W3", "HG明朝E", "ＭＳ Ｐ明朝", "MS PMincho", "MS 明朝", serif;
+	font-size: 2.4rem;
+	font-weight: 600;
+	text-align: center;
+}
+
+.mv .pageTtl::before {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 50%;
+	bottom: 0;
+	margin-left: -9.5rem;
+	width: 19rem;
+	height: 0.1rem;
+	border-bottom: 0.1rem solid #BB353F;
+}
+
+.mv .lead {
+	margin-top: 2.5rem;
+	color: #333;
+	text-align: center;
+}
+
+/* status */
+.mv .status {
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	margin: 6rem auto 0;
+	width: 100rem;
+}
+
+.mv .status::before {
+	content: "";
+	display: block;
+	position: absolute;
+	left: 50%;
+	margin-left: -46rem;
+	top: 3rem;
+	width: 92rem;
+	height: 0.1rem;
+	background-color: #E5E5E5;
+	z-index: 1;
+}
+
+.mv .status > li {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	position: relative;
+	width: 10rem;
+	z-index: 2;
+}
+
+.mv .status > li > div {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 6rem;
+	height: 6rem;
+	background-color: #F0F0F0;
+	border-radius: 50%;
+}
+
+.mv .status > li > div svg {
+	fill: #333;
+	stroke: #333;
+}
+
+.mv .status > li.status1 > div svg {
+	width: 2.4rem;
+}
+
+.mv .status > li.status2 > div svg {
+	width: 3.2rem;
+}
+
+.mv .status > li.status3 > div svg {
+	width: 2.3rem;
+}
+
+.mv .status > li.status4 > div svg {
+	width: 2.8rem;
+}
+
+.mv .status > li > .txt {
+	margin-top: 1rem;
+	color: #898989;
+	font-size: 1.4rem;
+	text-align: center;
+}
+
+
+/* ------ comp ------ */
+/* compTtl */
+.compTtl {
+	margin: 10rem 0 6rem;
+	color: #BB353F;
+	font-size: 2.4rem;
+	text-align: center;
+}
+
+/* compMessage */
+.compMessage > p {
+	font-size: 1.6rem;
+	color: #333;
+	text-align: center;
+}
+
+.compMessage > p + p {
+	margin-top: 3rem;
+}
+
+
+/* ------ form ------ */
+form {
+	margin: auto;
+	margin-top: 13rem;
+	width: 100rem;
+}
+
+form select {
+	-webkit-appearance: auto;
+	-moz-appearance: auto;
+	appearance: auto;
+}
+
+form .redTxt {
+	color: #F94C4A;
+	font-size: 1.4rem;
+	font-weight: 600;
+}
+
+form dl {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+}
+
+form dl + dl {
+	margin-top: 3.5rem;
+}
+
+form dl dt {
+	width: 29.5rem;
+}
+
+form dl dt > label {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	font-weight: 600;
+	line-height: 1.5;
+}
+
+form dl dt .badge {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	min-width: 6.5rem;
+	height: 2.4rem;
+	color: #fff;
+	background-color: #F94C4A;
+	font-weight: 600;
+	line-height: 1;
+	border-radius: .5rem;
+}
+
+form dl dd {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 68.5rem;
+	min-height: 5rem;
+	font-size: 1.4rem;
+}
+
+form dl dd > * {
+	margin: auto;
+	width: 100%;
+}
+
+/* formRadio */
+form .formRadio {
+	padding-left: 1.5rem;
+}
+
+form .formRadio > p > input {
+  display: none;
+}
+
+form .formRadio > p > input + label{
+  padding-left: 2.3rem;
+  position:relative;
+  margin-right: 1.5rem;
+}
+
+form .formRadio > p > input + label::before{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+	margin-top: -.7rem;
+  width: 1.4rem;
+  height: 1.4rem;
+  border: .1rem solid #999;
+  border-radius: 50%;
+}
+
+form .formRadio > p > input:checked + label::after{
+  content: "";
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 0;
+	margin-top: -.4rem;
+	margin-left: .3rem;
+  width: .8rem;
+  height: .8rem;
+  background: #000;
+  border-radius: 50%;
+}
+
+form .formRadio .note {
+	color: #605F5F;
+}
+
+/* formControl */
+form dl .formControl input,
+form dl .formControl select {
+	display: block;
+	padding: 1.2rem 2.4rem;
+	width: 100%;
+	min-height: 5rem;
+	background-color: #fff;
+	background-clip: padding-box;
+	font-weight: 400;
+	line-height: 1.5;
+	border: .1rem solid #878783;
+	border-radius: 0.3rem;
+}
+
+form dl .formControl select {
+	color: #7B7B7B;
+}
+
+form dl .formControl .formRadio {
+	padding: 2.5rem 0;
+	padding-left: 0;
+	color: #000;
+	font-weight: 600;
+}
+
+form dl .formControl .formRadio > p > span {
+	margin-right: 4rem;
+}
+
+form dl .formControl .formRadio > p > input + label {
+	font-weight: 300;
+}
+
+form dl .formControl .formRadio > p > input {
+	display: none;
+}
+
+form dl .formControl .note {
+	color: #605F5F;
+}
+
+/* style2 */
+form dl .formControl.style2 > p {
+	display: flex;
+}
+
+form dl .formControl.style2 input,
+form dl .formControl.style2 select {
+	width: 15rem;
+}
+
+form dl .formControl.style2 input + *,
+form dl .formControl.style2 select + * {
+	margin-left: 1.5rem;
+}
+
+/* style3 */
+form dl .formControl.style3 > p {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	color: #000;
+	font-weight: 600;
+}
+
+form dl .formControl.style3 > p + p {
+	margin-top: 1.5rem;
+}
+
+form dl .formControl.style3 input,
+form dl .formControl.style3 select {
+	width: 58rem;
+}
+
+/* formCheck */
+form dl .formCheck > p {
+	display: flex;
+	align-items: center;
+	height: 5rem;
+}
+
+form dl .formCheck > p > label {
+	display: inline-block;
+	position: relative;
+	padding-left: 4rem;
+	width: auto;
+	cursor: auto;
+}
+
+form dl .formCheck > p > label::before {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	width: 1.8rem;
+	height: 1.8rem;
+	background: #fff;
+	margin-top: -.9rem;
+	border: .1rem solid #878783;
+	border-radius: .3rem;
+}
+
+form dl .formCheck > p > label::after {
+	content: '';
+	display: block;
+	position: absolute;
+	top: 50%;
+	left: 0;
+	margin-top: -0.65rem;
+	margin-left: 0.6rem;
+	width: .6rem;
+	height: 1rem;
+	border-right: .2rem solid #BB353F;
+	border-bottom: .2rem solid #BB353F;
+	transform: rotate(45deg);
+	opacity: 0;
+}
+
+form dl .formCheck > p > input[type=checkbox]:checked + .checkbox01::after {
+	opacity: 1;
+}
+
+form dl .formCheck .note {
+	margin-top: .4rem;
+	font-weight: 600;
+	text-indent: 4rem;
+}
+
+/* hasNote */
+form .hasNote {
+	align-items: flex-start;
+}
+
+form .hasNote + dl {
+	margin-top: 1rem;
+}
+
+form .hasNote dt {
+	margin-top: calc((5rem - 2em) / 2);
+}
+
+form .hasNote dd.formCheck {
+	margin-top: calc((5rem - 2.3em) / 2);
+}
+
+form .hasNote .note {
+	display: block;
+	margin: .8rem;
+}
+
+form .hasNote .note.fsS {
+	font-size: 1.2rem;
+}
+
+form .hasNote .formCheck > p {
+	height: auto;
+	min-height: 1em;
+}
+
+form .hasNote.style2 + dl {
+	margin-top: 3.5rem;
+}
+
+/* notice */
+form .notice {
+	margin-top: 3.4rem;
+	padding: 2rem 4.5rem;
+	color: #605F5F;
+	background-color: #F0F0F0;
+	font-size: 1.4rem;
+	border-radius: .5rem;
+}
+
+form .notice > p {
+	display: block;
+	text-indent: 1em;
+}
+
+/* cBtn */
+form .cBtn {
+	margin-top: 6rem;
+}
+
+@media (max-width: 768px) {
+
+}
+
+
+/* --------------------------------
+	RG10
+-------------------------------- */
+main.RG10 .mv .status > li.status1 .icon {
+	background-color: #BB353F;
+}
+
+main.RG10 .mv .status > li.status1 .icon svg {
+	fill: #fff;
+	stroke: #fff;
+}
+
+main.RG10 .mv .status > li.status1 .txt {
+	color: #333;
+}
+
+
+/* --------------------------------
+	RG11
+-------------------------------- */
+main.RG11 .mv .status > li.status2 .icon {
+	background-color: #BB353F;
+}
+
+main.RG11 .mv .status > li.status2 .icon svg {
+	fill: #fff;
+	stroke: #fff;
+}
+
+main.RG11 .mv .status > li.status2 .txt {
+	color: #333;
+}
+
+main.RG11 form dl {
+	font-size: 1.4rem;
+}
+
+
+/* --------------------------------
+	RG20
+-------------------------------- */
+main.RG20 .mv .status > li.status3 .icon {
+	background-color: #BB353F;
+}
+
+main.RG20 .mv .status > li.status3 .icon svg {
+	fill: #fff;
+	stroke: #fff;
+}
+
+main.RG20 .mv .status > li.status3 .txt {
+	color: #333;
+}
+
+
+/* --------------------------------
+	RG21
+-------------------------------- */
+main.RG21 .mv .status > li.status3 .icon {
+	background-color: #BB353F;
+}
+
+main.RG21 .mv .status > li.status3 .icon svg {
+	fill: #fff;
+	stroke: #fff;
+}
+
+main.RG21 .mv .status > li.status3 .txt {
+	color: #333;
+}
+
+main.RG21 form dl {
+	align-items: flex-start;
+}
+
+main.RG21 form dl dt {
+	margin-top: 1.5;
+	width: 30rem;
+}
+
+main.RG21 form dl dt > label {
+	font-size: 1.8rem;
+}
+
+main.RG21 form dl dt {
+	padding-right: 6rem;
+}
+
+main.RG21 form dl dd > * {
+	margin: 0;
+}
+
+main.RG21 form dl dd p {
+	min-height: 4rem;
+}
+
+main.RG21 form dl dd p span {
+	display: inline-block;
+	min-width: 2em;
+	font-weight: 300;
+}
+
+main.RG21 form dl dd p span + span {
+	margin-left: 1.5rem;
+}
+
+main.RG21 form dl dd.hasHead p > span:first-of-type {
+	padding-right: 2rem;
+	width: 15rem;
+	font-weight: 600;
+}
+
+
+/* --------------------------------
+	RG30
+-------------------------------- */
+main.RG30 .mv .status > li.status4 .icon {
+	background-color: #BB353F;
+}
+
+main.RG30 .mv .status > li.status4 .icon svg {
+	fill: #fff;
+	stroke: #fff;
+}
+
+main.RG30 .mv .status > li.status4 .txt {
+	color: #333;
+}
+
+
+/* --------------------------------
+	LG10
+-------------------------------- */
+main.LG10 form dl dd .note {
+	margin-top: 1.5rem;
+	text-align: right;
+}
+
+main.LG10 form dl dd .note a {
+	text-decoration: underline;
+}
+
+main.LG10 form .cBtn {
+	margin-top: 7rem;
+}
+
+
+/* --------------------------------
+	CP10
+-------------------------------- */
+main.CP10 form dl .formControl .note {
+	display: block;
+	margin-top: .8rem;
+}
+
+main.CP10 form .cBtn {
+	margin-top: 10rem;
+}
+
+
+/* --------------------------------
+	CP20
+-------------------------------- */
+main.CP20 form .cBtn {
+	margin-top: 10rem;
+}
+
+
+
+
+@media (max-width: 768px) {
+
+}

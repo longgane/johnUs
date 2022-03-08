@@ -1,0 +1,107 @@
+.dropdown-conten {
+    width: 30rem;
+    position: relative;
+    z-index: 1;
+}
+
+.rotate {
+    transform: rotate(180deg);
+    transition: transform 0.5s;
+}
+
+.drop-select {
+    background-color: #FFFFFF;
+    padding: 1.5rem;
+    border-radius: 5px 5px 0px 0px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    border: 1px solid #CCCCCC;
+}
+
+#drop_list {
+    background-color: #FFFFFF;
+    border-radius: 0px 0px 5px 5px;
+    position: absolute;
+    width: 100%;
+    border: 1px solid #CCCCCC;
+    list-style: none;
+    box-shadow: 0 3px 6px #00000029;
+}
+
+.drop_option {
+    padding: 1.5rem 1rem;
+    line-height: 2rem;
+    cursor: pointer;
+}
+
+.drop_search {
+    padding: 1.5rem 1rem;
+    line-height: 2rem;
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.drop_option:hover {
+    background-color: #F3F3F3;
+}
+
+.drop_hide {
+    display: none;
+    transition: transform 0.5s;
+}
+
+.drop_scroll {
+    max-height: 250px;
+    overflow-y: scroll;
+}
+
+.col-dash_one {
+    display: inline;
+    height: 1px;
+    border: 1px dashed #4094C5;
+    width: 45%;
+}
+
+.col-date {
+    display: inline;
+    width: 10%;
+    color: #4094C5;
+}
+
+.col-dash_two {
+    display: inline;
+    height: 1px;
+    border: 1px dashed #4094C5;
+    width: 45%;
+}
+
+
+/* --------------- */
+
+.form_message {
+    width: 100%;
+    background-color: #F3F3F3;
+    border-radius: 0 0 5px 5px;
+}
+
+.form_message .message_send {
+    background-color: #3273B9;
+    border-radius: 5px;
+    color: #fff;
+    border: none;
+    width: 10rem;
+    height: 4rem;
+    font-weight: bold;
+}
+
+.message_send:hover {
+    background-color: #0b5eb8;
+}
+
+.form_message textarea {
+    box-sizing: border-box;
+    border-radius: 10px;
+    width: 100%;
+}
