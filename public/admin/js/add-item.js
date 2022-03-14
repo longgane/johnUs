@@ -1,13 +1,10 @@
 function create_tr(table_id) {
     let form_body = document.getElementById(table_id),
         first_tr = form_body.firstElementChild
-
     tr_clone = first_tr.cloneNode(true);
-
-
     form_body.append(tr_clone);
-
     clean_first_tr(form_body.firstElementChild);
+
 }
 
 function clean_first_tr(firstTr) {
