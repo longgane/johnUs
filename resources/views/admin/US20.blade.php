@@ -138,13 +138,11 @@
                     <th class="th100" style="text-align: center">Join人数</th>
                 </tr>
                 </thead>
-                <tbody id="table-body">
-
-                </tbody>
+                
             </table>
         </div>
         <div class="container">
-            <div id="pagination-wrapper"></div>
+            <div id="pagination-wrapper" class="text-end mt-lg-5"></div>
         </div>
         
 
@@ -164,7 +162,7 @@
         </div>
         
         <div class="row mt-lg-5 ms-1" style="width: 100%">
-            <table class="table table-bordered" id="table_data">
+            <table class="table table-bordered" id="table_data1">
                 <tr>
                     <th class="th150">応募ステータス</th>
                     <th class="th150" style="text-align: center;">応募日</th>
@@ -172,37 +170,11 @@
                     <th class="th150" style="text-align: center;">ギルド名</th>
                     <th class="th150" style="text-align: center;">感謝ポイント</th>
                 </tr>
-                <tr>
-                    <td style="">
-                        <button class="base-button load-btn mb-3"> 選考中</button>    
-                    </td>
-                    <td style="text-align: center;">2021/11/20</td>
-                    <td style="">記事コンテンツへの掲載記事作成</td>
-                    <td style="text-align: center;">伊万里市</td>
-                    <td style="text-align: center;">12</td>
-                </tr>
-                <tr>
-                    <td style=""> <button class="base-button load-btn mb-3"> 選考中</button>   </td>
-                    <td style="text-align: center;">2021/11/20</td>
-                    <td style="">記事コンテンツへの掲載記事作成</td>
-                    <td style="text-align: center;">伊万里市</td>
-                    <td style="text-align: center;">12</td>
-                </tr>
-                <tr>
-                    <td style=""> <button class="base-button load-btn mb-3"> 選考中</button>   </td>
-                    <td style="text-align: center;">2021/11/20</td>
-                    <td style="">記事コンテンツへの掲載記事作成</td>
-                    <td style="text-align: center;">伊万里市</td>
-                    <td style="text-align: center;">12</td>
-                </tr>
-                <tr>
-                    <td style=""> <button class="base-button used-btn mb-3"> 選考中</button>   </td>
-                    <td style="text-align: center;">2021/11/20</td>
-                    <td style="">記事コンテンツへの掲載記事作成</td>
-                    <td style="text-align: center;">伊万里市</td>
-                    <td style="text-align: center;">12</td>
-                </tr>
+               
             </table>
+        </div>
+        <div class="container">
+            <div id="pagination-wrapper1" class="text-end mt-lg-5"></div>
         </div>
         <div class="title-main-conten">
             <p>運営側入力</p>
@@ -248,309 +220,8 @@
         </div>
     </form>
 </div>
+<script src="/admin/js/pages/US20.js"></script>
+<script src="/admin/js/pages/US20_1.js"></script>
+<script src="/admin/js/pages/AC20.js"></script>
 
-<script src="/admin/js/image-file-uploader.js"></script>
-<script>
-
-
-
-function loadFundDetailInformation(FUND_ID) {
-    /**
-     * Get data for edit.
-     */
-    $.get(`/ajax/fund.detail.${FUND_ID}`, function(data) {
-        bindDataForForm(data);
-
-        let subImageUrls = [];
-
-        /**
-         * Initial data for block サブ画像
-         */
-        for (let i = 1; i <= 5; i++) {
-            let item = getFormDataByFieldName(data, 'サブ画像_' + i);
-
-            if (item && item.value) {
-                subImageUrls.push(item.value);
-            }
-        }
-        initialImageFileUploader('サブ画像_img_upload', subImageUrls, 5);
-
-        /**
-         * Inital data for block メイン画像
-         */
-        let img2 = getFormDataByFieldName(data, 'メイン画像');
-        initialImageFileUploader('メイン画像_img_upload', img2 && img2.value ? [img2.value] : [], 1);
-
-        /**
-         * Inital data for block チラシ画像
-         */
-        let img3 = getFormDataByFieldName(data, 'チラシ画像');
-        initialImageFileUploader('チラシ画像_img_upload', img3 && img3.value ? [img3.value] : [], 1);
-    });
-}
-
-$(document).ready(function() {
-    let FUND_ID = $.urlParam('fund_id');
-
-    loadFundDetailInformation(FUND_ID);
-    /**
-     * Auto saving data when user focus out of fields for calculating
-     */
-    $('[data-for-calculating="true"]').focusout(function(event) {
-        let data = getDataFromForm();
-        let element = event.target;
-
-        data = data.filter(function(item) {
-            return item.column_name == $(element).attr('name');
-        });
-
-        $.ajax({
-                url: `/ajax/fund.update.${FUND_ID}`,
-                data: JSON.stringify(data),
-                type: 'POST',
-                contentType: 'application/json',
-            })
-            .done(function() {
-                $.get(`/ajax/fund.detail.${FUND_ID}`, function(data) {
-                    let target_update_fields = [];
-
-                    $('[data-calculating-result="true"]').each(function(index,
-                        element) {
-                        target_update_fields.push(element.dataset.model);
-                    });
-
-                    data = data.filter(function(item) {
-                        return target_update_fields.includes(item.column_name);
-                    });
-
-                    bindDataForForm(data);
-                });
-            })
-            .fail(function(error) {
-                showErrorMessage(error.responseJSON);
-            });
-    });
-
-    $("#submit_form").click(function() {
-        let btn = $(this);
-        btn.addClass('disabled');
-
-        let data = getDataFromForm();
-
-        console.log(data);
-        /**
-         * Handle data for block サブ画像
-         */
-        let subImages = getDataFromImageFileUploader('サブ画像_img_upload');
-        for (let i = 1; i <= 5; i++) {
-            if (subImages[i - 1]) {
-                data.push({
-                    'column_name': `サブ画像_${i}`,
-                    'data_type': subImages[i - 1].dataType,
-                    'value': subImages[i - 1].file,
-                    'file_name': subImages[i - 1].name,
-                });
-            } else {
-                data.push({
-                    'column_name': `サブ画像_${i}`,
-                    'data_type': 'text',
-                    'value': '',
-                });
-            }
-        }
-
-        /**
-         * Handle data for block メイン画像
-         */
-        let img2 = getDataFromImageFileUploader('メイン画像_img_upload');
-        if (img2[0]) {
-            data.push({
-                'column_name': `メイン画像`,
-                'data_type': img2[0].dataType,
-                'value': img2[0].file,
-                'file_name': img2[0].name,
-            });
-        } else {
-            data.push({
-                'column_name': `メイン画像`,
-                'data_type': 'text',
-                'value': '',
-            });
-        }
-
-        /**
-         * Handle data for block チラシ画像
-         */
-        let img3 = getDataFromImageFileUploader('チラシ画像_img_upload');
-        if (img3[0]) {
-            data.push({
-                'column_name': `チラシ画像`,
-                'data_type': img3[0].dataType,
-                'value': img3[0].file,
-                'file_name': img3[0].name,
-            });
-        } else {
-            data.push({
-                'column_name': `チラシ画像`,
-                'data_type': 'text',
-                'value': '',
-            });
-        }
-
-        $.ajax({
-                url: `/ajax/fund.update.${FUND_ID}`,
-                data: JSON.stringify(data),
-                type: 'POST',
-                contentType: 'application/json',
-            })
-            .done(function() {
-                showMessageSaveSuccessfully();
-                btn.removeClass('disabled');
-            })
-            .fail(function(error) {
-                showErrorMessage(error.responseJSON);
-                btn.removeClass('disabled');
-            });
-    });
-});
-
-
-
-
-
-
-// nhập liệu bảng 1
-var tableData = [{
-                'ギルド名':'吉田 優子 ',
-                '都道府県':'佐賀県',
-               '担当者': '吉田 優作',
-                'クエスト数':'123',
-                'Join人数':'12',
-               
-                },
-                {
-                'ギルド名':'藤田 田 ',
-                '都道府県':'佐賀県',
-               '担当者': '吉田 優作',
-                'クエスト数':'123',
-                'Join人数':'12',
-                },
-                {
-               'ギルド名':'藤田 田',
-                '都道府県':'佐賀県',
-               '担当者': '吉田 優作',
-                'クエスト数':'123',
-                'Join人数':'12',
-                },
-                {'ギルド名':'藤田 田',
-                '都道府県':'佐賀県',
-               '担当者': '吉田 優作',
-                'クエスト数':'123',
-                'Join人数':'12',
-                }
-                ]
-
-    var state = {
-    'querySet': tableData,
-    'page': 1,
-    'rows': 4,
-    'window': 10,
-}
-
-
-// buildTable()
-
-function pagination(querySet, page, rows) {
-
-    var trimStart = (page - 1) * rows
-    var trimEnd = trimStart + rows
-
-    var trimmedData = querySet.slice(trimStart, trimEnd)
-
-    var pages = Math.round(querySet.length / rows);
-
-    return {
-        'querySet': trimmedData,
-        'pages': pages,
-    }
-}
-
-function pageButtons(pages) {
-    var wrapper = document.getElementById('pagination-wrapper')
-
-    wrapper.innerHTML = ``
-	console.log('Pages:', pages)
-
-    var maxLeft = (state.page - Math.floor(state.window / 2))
-    var maxRight = (state.page + Math.floor(state.window / 2))
-
-    if (maxLeft < 1) {
-        maxLeft = 1
-        maxRight = state.window
-    }
-
-    if (maxRight > pages) {
-        maxLeft = pages - (state.window - 1)
-        
-        if (maxLeft < 1){
-        	maxLeft = 1
-        }
-        maxRight = pages
-    }
-    
-    
-
-    for (var page = maxLeft; page <= maxRight; page++) {
-    	wrapper.innerHTML += `<button value=${page} class="page btn btn-sm btn-info">${page}</button>`
-    }
-
-    if (state.page != 1) {
-        wrapper.innerHTML = `<button value=${1} class="page btn btn-sm btn-info">&#171; 初め</button>` + wrapper.innerHTML
-    }
-
-    if (state.page != pages) {
-        wrapper.innerHTML += `<button value=${pages} class="page btn btn-sm btn-info">最後 &#187;</button>`
-    }
-
-    $('.page').on('click', function() {
-        $('#table-body').empty()
-
-        state.page = Number($(this).val())
-
-        buildTable()
-    })
-
-}
-
-function buildTable() {
-    var table = $('#table-body')
-
-    var data = pagination(state.querySet, state.page, state.rows)
-    var myList = data.querySet
-
-    for (var i = 1 in myList) {
-        //Keep in mind we are using "Template Litterals to create rows"
-        var row = `<tr onclick="location.href='/admin/AC30'">
-                  <td>${myList[i].ギルド名}</td>
-                  <td>${myList[i].都道府県}</td>
-                  <td>${myList[i].担当者}</td>
-                  <td style="text-align: center; color: #2F6FC8; text-decoration-line:underline;">${myList[i].クエスト数}</td>
-                  <td style="text-align: center; color: #2F6FC8; text-decoration-line:underline;">${myList[i].Join人数}</td>
-                  </tr>
-                  `
-        table.append(row)
-    }
-
-    pageButtons(data.pages)
-}
-
-
-
-
-
-$(document).ready(function() {
-   
-    buildTable();
-});
-</script>
 @endsection

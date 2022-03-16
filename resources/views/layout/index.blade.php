@@ -97,7 +97,7 @@
                     </li>
                 {{-- --------------------------------------------- --}}
                     <li class="nav-link1">
-                        <a href="/admin/US10" data-target-screen="US10,US20,NE30" class="">
+                        <a href="/admin/US10" data-target-screen="US10,US20" class="">
                             <i class="fas fa-users icon">
                                 <span class="tool">
                                     ユーザー

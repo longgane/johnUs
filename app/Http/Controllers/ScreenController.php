@@ -16,7 +16,7 @@ class ScreenController extends BaseController
     }
 
     public function renderHomeScreen() {
-        return view('index');
+        return view('home');
     }
 
     public function redirectToHomeAdmin() {

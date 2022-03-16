@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\FundController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\ScreenController;
+use App\Http\Controllers\Api\ApplicationAPIController;
 
 /*
 |--------------------------------------------------------------------------
@@ -157,3 +158,8 @@ Route::get('/admin', [ScreenController::class, 'redirectToHomeAdmin']);
 Route::get('/{screen}', [ScreenController::class, 'renderScreen']);
 Route::get('/{folder}/{screen}', [ScreenController::class, 'renderScreenWithSubFolder']);
 Route::get('/{folder1}/{folder2}/{screen}', [ScreenController::class, 'renderScreenWithMultipleSubFolder']);
+
+/**
+ * Application API Request Controller.
+ */
+Route::any('/api/v2/{subject}/{action}', [ ApplicationAPIController::class, 'handleRequest' ]);
