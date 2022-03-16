@@ -978,6 +978,28 @@ COLOR FORM
     #pagination-wrapper button.active {
         background-color: #3273B9;
     }
+    
+    #pagination-wrapper1 {
+        height: 50px;
+    }
+    
+    #pagination-wrapper1 button {
+        width: 55px;
+        height: 37px;
+        background-color: #a3a3a3;
+        color: white;
+        border: none;
+        margin-right: 2px;
+        font-size: 1rem;
+    }
+    
+    #pagination-wrapper1 button:hover {
+        background-color: #b9b8b8;
+    }
+    
+    #pagination-wrapper1 button.active {
+        background-color: #3273B9;
+    }
     /* sửa chiều dài của form ngày tháng */
     
     @media (min-width: 992px) {
