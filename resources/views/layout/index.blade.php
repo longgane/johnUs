@@ -77,9 +77,11 @@
                     <li class="nav-link1">
                         <a href="/admin/CL10" data-target-screen="CL10,CL20,CL30,CL40" class="" aria-current="true">
                             {{-- <i class='bx bx-home-alt icon' ></i> --}}
-                            <i class=" fas fa-synagogue icon"><span class="tool">
-                                ギルド
-                            </span></i>
+                            <i class=" fas fa-synagogue icon">
+                                <span class="tool">
+                                    ギルド
+                                </span>
+                            </i>
                             
                             <span class="text nav-text">ギルド</span>
                         </a>
@@ -108,7 +110,7 @@
                     </li>
                 {{-- --------------------------------------------- --}}
                     <li class="nav-link1">
-                        <a href="/admin/MG10" data-target-screen="MG10,MG11,AC30" class="">
+                        <a href="/admin/MG10" data-target-screen="MG10,MG11,MG20" class="">
                             <i class="fas fa-sms icon">
                                 <span class="tool">
                                     メッセージ

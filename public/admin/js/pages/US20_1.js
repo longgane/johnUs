@@ -50,7 +50,7 @@ function page1Buttons1(pages1) {
     }
 
     // Set color for active button.
-    $(`button[value="${state1.page1}"]`).addClass('active');
+    $(`button[value="${state1.page1}"]`).addClass('active1');
 
     $('.page1').on('click', function() {
         state1.page1 = Number($(this).val())
@@ -116,7 +116,7 @@ function buildTable1() {
     chunk.forEach(function(data) {
         items += `
                 <tr>
-                    <td><a href="">${data['応募ステータス'] || '-'}</a></td>
+                    <td><a style="padding-left: 0px;" href="">${data['応募ステータス'] || '-'}</a></td>
                     <td>${data['応募日'] || '-'}</td>
                     <td>${data['クエスト名'] || '-'}</td>
                     <td>${data['ギルド名'] || '-'}</td>

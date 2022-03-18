@@ -326,6 +326,7 @@
 <script src="/admin/js/image-file-uploader.js"></script>
 <script src="/admin/js/validate.js"></script>
 <script src="/admin/js/tags.js"></script>
+<script src="/admin/js/dataTag.js"></script>
 <script src="/admin/js/pages/JB30.js"></script>
 
 @endsection
