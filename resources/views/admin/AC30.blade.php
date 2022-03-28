@@ -1,5 +1,7 @@
 @extends('layout.index')
-
+@section('title')
+<title>AC30</title>
+@endsection
 @section('breadcrumb')
 <div id="breadcrumbs">
     <nav aria-label="breadcrumb">

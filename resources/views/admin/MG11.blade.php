@@ -1,8 +1,9 @@
 @extends('layout.index')
 @section('stylesheet')
 <link rel="stylesheet" href="/admin/css/MG11.css?v={{rand(10,1000)}}">
-
-
+@endsection
+@section('title')
+<title>MG11</title>
 @endsection
 @section('breadcrumb')
 <div id="breadcrumbs">

@@ -39,7 +39,8 @@
      <script src="/admin/js/app.js?v={{rand(10,1000)}}"></script>
      <link rel="stylesheet" href="/admin/css/layout.css?v={{rand(10,1000)}}">
      @yield('stylesheet')
-    <title>Dashboard Sidebar Menu</title> 
+     @yield('title')
+     
 </head>
 <body> 
     <header id="header">

@@ -2,6 +2,9 @@
 @section('stylesheet')
 <link rel="stylesheet" href="/admin/css/bootstrap-datepicker3.min.css">
 @endsection
+@section('title')
+<title>IN30</title>
+@endsection
 @section('breadcrumb')
 <div id="breadcrumbs">
     <nav aria-label="breadcrumb">
